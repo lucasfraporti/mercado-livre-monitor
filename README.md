@@ -1,1 +1,2 @@
-Remover o Delay de 10 segundos para cada adição no array e fazer com que ele seja chamado somente no penúltimo produto da página pois estava dando um erro que quando alterava a página, já abria quase que instantaneamente o link do produto.
+Sugestões?
+Entre em contato através do Discord: letuga.
