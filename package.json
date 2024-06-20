@@ -1,7 +1,7 @@
 {
-  "name": "web-scraping",
+  "name": "mercado-livre-monitor",
   "version": "1.0.0",
-  "description": "Testando o Web Scraping com Puppeteer",
+  "description": "Realizando o Web Scraping do Mercado Livre com Puppeteer",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -11,7 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "puppeteer": "^22.11.2",
-    "puppeteer-core": "^22.11.2"
+    "puppeteer": "^22.11.2"
   }
 }
