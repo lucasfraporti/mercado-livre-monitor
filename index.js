@@ -143,25 +143,33 @@ const stateProxy = new Proxy(state, {
       )
     }
 
-    const nextButton = await page.$('.andes-pagination__button--next a')
-    if (nextButton) {
-      const buttonText = await page.evaluate(
-        (element) => element.innerText,
-        nextButton
-      )
-      if (buttonText.includes('Seguinte')) {
-        await page.waitForSelector('.andes-pagination__button--next a', {
-          visible: true,
-        })
-        await Promise.all([page.waitForNavigation(), nextButton.click()])
-        c++
+    const nextButtonDisabled = await page.$(
+      '.andes-pagination__button.andes-pagination__button--next.andes-pagination__button--disabled'
+    )
+    if (nextButtonDisabled) {
+      console.log('Não há mais páginas para navegar.')
+      break
+    } else {
+      const nextButton = await page.$('.andes-pagination__button--next a')
+      if (nextButton) {
+        const buttonText = await page.evaluate(
+          (element) => element.innerText,
+          nextButton
+        )
+        if (buttonText.includes('Seguinte')) {
+          await page.waitForSelector('.andes-pagination__button--next a', {
+            visible: true,
+          })
+          await Promise.all([page.waitForNavigation(), nextButton.click()])
+          c++
+        } else {
+          console.log('Não há mais páginas para navegar.')
+          break
+        }
       } else {
         console.log('Não há mais páginas para navegar.')
         break
       }
-    } else {
-      console.log('Não há mais páginas para navegar.')
-      break
     }
   }
 
